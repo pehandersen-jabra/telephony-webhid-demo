@@ -342,7 +342,7 @@
 			} else if (mode != "auto") {
 				filters.push({vendorId: modes[mode].vendorId});
 			}
-			device = await navigator.hid.requestDevice({filters: filters});
+			device = (await navigator.hid.requestDevice({filters: filters}))[0];
 			if (!device) {
 				logappend('chooser dismissed without a selection');
 				return;
